@@ -1,0 +1,48 @@
+1. avoid deep nesting:
+    invert the conditionals
+    no need to go deep into if else unless connected
+    merge what you can
+    extract complex logic into its own function
+    extract long if else of switch statements into its own function
+
+2. organize the code:
+    avoid repetitive behavior; code duplicated 
+    extact these to the functions
+
+3. don't use naming that only you understand
+
+#############
+
+1. Modularize code by deparating returs into functions; make more isolatio
+2. write unit test to verify the correctness of units of individual components
+3. Regression test: very frequently TEST
+
+############ Low level coding tips in C
+One liner: put if else statements into one line 
+char *result = (hit == 1) ? "Hit!" : "Miss!";
+
+Use bitwise operators: && (logical and) & (check both)
+                        | (bitwise or) || (logical or)
+
+Handling number of arguments: <stdarg.h>
+modify functions to handle this
+
+Bit twidding:
+    flag variables
+    each int var is 32 bitwise
+    use single int variable to strore multiple flags
+
+#define JUMPING (1 << 0) // 0001 --> move the byte
+#define RUNNING (1 << 1) // 0010
+#define RUNNING (1 << 2) // 0100
+
+int state = 0;
+state |= JUMPING;
+state &= ~JUMPING;
+
+(then we use if else condition)
+
+if (state & JUMPING) {
+    ....
+}
+

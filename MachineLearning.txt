@@ -1,0 +1,18 @@
+Supervised learning: 
+    Linear Regression: try to determine the linear relationship between the data 
+    Logistic Regression 
+
+    K Nearest Neighbors: complicated relationship between Neighbors --> cross validation
+
+    Kernel Functions --> Kernel trick
+
+    Decision Tree!!! check this (yes, no questions): we make pure split data 
+    combine many Decision trees  (bagging=bootstrapping; boosting= each module focuses on correcting th eporblems of the previous module)
+
+    Neural Networks: ai makes itself better
+
+Unsupervised Learning: (not for me)
+    K-Means Clustering
+    Dimensionality Reduction
+    
+
