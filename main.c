@@ -1,3 +1,8 @@
+
+
+
+
+
 #include <stdio.h>
 #include <unistd.h> //read
 #include <stdint.h> //int8_t
@@ -12,6 +17,8 @@
 #define MAX_X 50
 #define MAX_Y 50
 #define BUFFER_SIZE 6000
+#define RADIUS 8 //elég lesz
+#define NEGYZET (RADIUS * 2 + 1)
 
 #define sharpASCII 35
 #define B_ASCII 66 //kék ásvány
@@ -32,6 +39,29 @@ struct MezoAdatai {
     int ercmezo;
 };
 
+char radius[NEGYZET][NEGYZET]; //
+
+void countRadius(char array[MAX_X][MAX_Y], int ROVER_POS[]) { //minden körben változik
+    int rovX = ROVER_POS[0];
+    int rovY = ROVER_POS[1];
+
+    printf("DEBUG: négyzet közepe %d -- rover mostani poziciója: %d:%d", radius[RADIUS+1][RADIUS+1], ROVER_POS[0], ROVER_POS[1]);
+    for (int dx = -RADIUS; dx <= RADIUS; dx++) {
+        for (int dy = -RADIUS; dy <= RADIUS; dy++) {
+            radius[dx + RADIUS][dy + RADIUS] =
+                array[rovX + dx][rovY + dy];
+        }
+    }
+
+    radius[RADIUS][RADIUS] = 'S';
+
+    // for (int x = 0; x < NEGYZET; x++) {
+    //     for (int y = 0; y < NEGYZET; y++) {
+    //         printf("%c", radius[x][y]);
+    //     }
+    //     printf("\n");
+    // }
+}
 
 void napJaras() {
 
@@ -213,7 +243,7 @@ int Iranyitas(char array[MAX_X][MAX_Y], int ROVER_POS[]) {
     printf("DEBUG; return mezo eredm ERCMEZO: %d\n", mezoEllenorzoEredmenyek.ercmezo);
 
     if (!(mezoEllenorzoEredmenyek.mozgas)) {
-        printf("Most nem tudott mozogni blokk miatt\n");
+        printf("Most nem tudott mozogni blokk miatt. Rover poziciója: %d:%d\n", ROVER_POS[0], ROVER_POS[1]);
         return 0;
     }
     if (mezoEllenorzoEredmenyek.ercmezo) {
@@ -251,6 +281,12 @@ void JatekKezdete(char array[MAX_X][MAX_Y], int ROVER_POS[]) { //játék logika
 
     int lepesekSzama = adottIdoTartam * 2; //egy óra = 2 félóra
     printf("Sikeresen töltöttünk be az időt!\n");
+
+    //radius betöltése
+
+    countRadius(array, ROVER_POS);
+
+
 
 ////////////////////////////////
 ////////////////////////////////
