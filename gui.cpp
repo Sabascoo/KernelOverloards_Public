@@ -40,11 +40,20 @@ struct Vilag {
 
 
 
-// Represents one action/step in the AI's route
+
+// Represents one action/step in the AI's route with all 13 data points
 struct RouteStep {
+    int round;
     int x, y;
-    RoverState state;
+    float battery;
     int speed;
+    int pathCount;
+    int totalMinerals;
+    int green, yellow, blue;
+    std::string timePeriod;
+    float exactTime;
+    std::string stateStr;
+    RoverState state; // Helper to map the string back to enum
 };
 
 // Global variables for the AI routing
@@ -561,109 +570,97 @@ void DrawMap() {
     ImGui::PopStyleVar();
 }
 
-void UpdateAILogic() {
-    // 1. If we just started and history is empty, log the starting position
-    if (roverHistory.empty()) {
-        roverHistory.push_back(ImVec2((float)rover.x, (float)rover.y));
-    }
 
-    if (aiRoute.empty() || currentRouteIndex >= aiRoute.size() - 1) {
+void UpdateAILogic() {
+    if (aiRoute.empty() || currentRouteIndex >= (int)aiRoute.size()) {
         rover.state = STANDING;
-        rover.sebesseg = 0;
         return;
     }
 
-    timeSinceLastStep += vilag.idosebesseg;
+    // Controls how fast the simulation plays back in the GUI
+    // 0.016f assumes 60FPS. Increase the 0.1f threshold to slow it down.
+    timeSinceLastStep += 0.016f; 
 
-    if (timeSinceLastStep >= STEP_INTERVAL) {
-        timeSinceLastStep -= STEP_INTERVAL; 
-        currentRouteIndex++;
+    if (timeSinceLastStep >= 5.0f) {  //change 0.1f to higher value to set a higher second
+        timeSinceLastStep = 0.0f;
         
-        RouteStep currentStep = aiRoute[currentRouteIndex];
-        
-        // Update orientation
-        if (currentStep.x > rover.x) rover.irany = 90.0f;
-        else if (currentStep.x < rover.x) rover.irany = 270.0f;
-        else if (currentStep.y > rover.y) rover.irany = 180.0f;
-        else if (currentStep.y < rover.y) rover.irany = 0.0f;
+        RouteStep& s = aiRoute[currentRouteIndex];
 
-        // Update position
-        rover.x = currentStep.x;
-        rover.y = currentStep.y;
-        rover.state = currentStep.state;
-        rover.sebesseg = currentStep.speed;
-        
-        if (rover.state == MOVING) rover.tavolsag += 1.0f;
+        // Update direction based on movement
+        if (s.x > rover.x) rover.irany = 90.0f;
+        else if (s.x < rover.x) rover.irany = 270.0f;
+        else if (s.y > rover.y) rover.irany = 180.0f;
+        else if (s.y < rover.y) rover.irany = 0.0f;
 
-        // 2. ONLY push to history if the coordinate is different from the last one
-        // This prevents drawing "dots" on top of dots and saves memory
-        // Log history SAFELY
+        // Sync Rover Object
+        rover.x = s.x;
+        rover.y = s.y;
+        rover.battery = s.battery;
+        rover.state = s.state;
+        rover.sebesseg = s.speed;
+        rover.zold = s.green;
+        rover.sarga = s.yellow;
+        rover.kek = s.blue;
+        rover.tavolsag = (float)s.pathCount;
+
+        // Sync Global World Time
+        vilag.ora = s.exactTime;
+
+        // Update Nav Trail
         ImVec2 newPos = ImVec2((float)rover.x, (float)rover.y);
-        if (roverHistory.empty()) {
-            roverHistory.push_back(newPos);
-        } else if (roverHistory.back().x != newPos.x || roverHistory.back().y != newPos.y) {
+        if (roverHistory.empty() || roverHistory.back().x != newPos.x || roverHistory.back().y != newPos.y) {
             roverHistory.push_back(newPos);
         }
-        
-        if (rover.state == DIGGING) {
-            char& currentTile = mapGrid[rover.y][rover.x].type;
-            if (currentTile == 'G') { rover.zold++; currentTile = '.'; }
-            else if (currentTile == 'Y') { rover.sarga++; currentTile = '.'; }
-            else if (currentTile == 'B') { rover.kek++; currentTile = '.'; }
-        }
+
+        currentRouteIndex++;
     }
 }
 
-void InitFakeRoute() {
-    int startX = rover.x;
-    int startY = rover.y;
-    
-    // Garantált gyémántok elhelyezése a teszthez
-    if (startX + 3 < MAP_W) mapGrid[startY][startX + 3].type = 'B';
-    if (startY + 3 < MAP_H) mapGrid[startY + 3][startX + 3].type = 'Y';
-    if (startY + 5 < MAP_H) mapGrid[startY + 5][startX + 2].type = 'G';
-    if (startY + 7 < MAP_H) mapGrid[startY + 7][startX + 5].type = 'B';
+void LoadAIRoute(const std::string& filename) {
+    std::ifstream file(filename);
+    if (!file.is_open()) return;
 
-    aiRoute.push_back({startX, startY, STANDING, 0}); // 0. lépés
-    
-    // Irány az 1. gyémánt
-    aiRoute.push_back({startX + 1, startY, MOVING, 1}); // 1
-    aiRoute.push_back({startX + 2, startY, MOVING, 1}); // 2
-    aiRoute.push_back({startX + 3, startY, MOVING, 1}); // 3
-    aiRoute.push_back({startX + 3, startY, DIGGING, 0}); // 4
-    
-    // Irány a 2. gyémánt
-    aiRoute.push_back({startX + 3, startY + 1, MOVING, 2}); // 5
-    aiRoute.push_back({startX + 3, startY + 2, MOVING, 2}); // 6
-    aiRoute.push_back({startX + 3, startY + 3, MOVING, 1}); // 7
-    aiRoute.push_back({startX + 3, startY + 3, DIGGING, 0}); // 8
-    
-    // Irány a 3. gyémánt
-    aiRoute.push_back({startX + 2, startY + 3, MOVING, 1}); // 9
-    aiRoute.push_back({startX + 2, startY + 4, MOVING, 1}); // 10
-    aiRoute.push_back({startX + 2, startY + 5, MOVING, 1}); // 11
-    aiRoute.push_back({startX + 2, startY + 5, DIGGING, 0}); // 12
+    aiRoute.clear();
+    std::string line;
+    while (std::getline(file, line)) {
+        if (line.empty()) continue; 
 
-    // Séta és kutatás tovább
-    aiRoute.push_back({startX + 3, startY + 5, MOVING, 1}); // 13
-    aiRoute.push_back({startX + 4, startY + 5, MOVING, 1}); // 14
-    aiRoute.push_back({startX + 5, startY + 5, MOVING, 1}); // 15
-    aiRoute.push_back({startX + 5, startY + 6, MOVING, 1}); // 16
-    aiRoute.push_back({startX + 5, startY + 7, MOVING, 1}); // 17
-    aiRoute.push_back({startX + 5, startY + 7, DIGGING, 0}); // 18 (4. gyémánt)
+        std::stringstream ss(line);
+        std::string cell;
+        RouteStep step;
+        std::vector<std::string> row;
 
-    // Hazatérés gyors sebességgel
-    aiRoute.push_back({startX + 4, startY + 7, MOVING, 3}); // 19
-    aiRoute.push_back({startX + 3, startY + 7, MOVING, 3}); // 20
-    aiRoute.push_back({startX + 2, startY + 7, MOVING, 3}); // 21
-    aiRoute.push_back({startX + 1, startY + 7, MOVING, 3}); // 22
-    aiRoute.push_back({startX + 0, startY + 7, MOVING, 3}); // 23
-    aiRoute.push_back({startX + 0, startY + 6, MOVING, 3}); // 24
-    aiRoute.push_back({startX + 0, startY + 5, MOVING, 3}); // 25
-    aiRoute.push_back({startX + 0, startY + 4, MOVING, 3}); // 26
-    
-    // Megérkezés
-    aiRoute.push_back({startX, startY, STANDING, 0});       // 27
+        while (std::getline(ss, cell, ',')) {
+            row.push_back(cell);
+        }
+
+        if (row.size() >= 13) {
+            try {
+                step.round = std::stoi(row[0]);
+                step.x = std::stoi(row[1]);
+                step.y = std::stoi(row[2]);
+                step.battery = std::stof(row[3]);
+                step.speed = std::stoi(row[4]);
+                step.pathCount = std::stoi(row[5]);
+                step.totalMinerals = std::stoi(row[6]);
+                step.green = std::stoi(row[7]);
+                step.yellow = std::stoi(row[8]);
+                step.blue = std::stoi(row[9]);
+                step.timePeriod = row[10];
+                step.exactTime = std::stof(row[11]); // Correct conversion
+                step.stateStr = row[12];
+
+                if (step.stateStr == "MOVING") step.state = MOVING;
+                else if (step.stateStr == "DIGGING") step.state = DIGGING;
+                else step.state = STANDING;
+
+                aiRoute.push_back(step);
+            } catch (...) {
+                continue; // Skip lines with bad data
+            }
+        }
+    }
+    file.close();
 }
 
 
@@ -679,7 +676,7 @@ int main() {
     ImGui_ImplOpenGL3_Init("#version 130");
 
     LoadMap("mars_map_50x50.csv");
-    InitFakeRoute(); 
+    LoadAIRoute("ai_route.txt");
 
     float lastTime = 0.0f;
 
