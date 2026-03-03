@@ -5,7 +5,7 @@
 #include <sstream>
 #include <algorithm>
 #include <cmath>
-
+#include <deque>
 
 
 #include "imgui.h"
@@ -65,10 +65,46 @@ const float STEP_INTERVAL = 0.5f; // 0.5 simulation hours per round
 // This holds the "breadcrumb trail" of coordinates
 std::vector<ImVec2> roverHistory;
 
-enum CameraView { VIEW_TOP, VIEW_BACK, VIEW_SIDE };
-CameraView currentView = VIEW_TOP;
+
+static bool showMissionCompletePopup = false;
+
+static std::deque<std::string> consoleLines;
+static const size_t CONSOLE_MAX_LINES = 300;
+static bool consoleAutoScroll = true;
+
+
+
+static int goalGreen = 0, goalYellow = 0, goalBlue = 0;
+static int goalTotal = 0;
 
 // --- Segédfüggvények ---
+static void ConsoleAdd(const std::string& s) {
+    consoleLines.push_back(s);
+    if (consoleLines.size() > CONSOLE_MAX_LINES) consoleLines.pop_front();
+}
+
+static void DrawMissionConsole(float height = 140.0f) {
+    ImGui::BeginChild("MissionConsole", ImVec2(0, height), true);
+
+    ImGui::Text("MISSION CONSOLE"); 
+    ImGui::SameLine();
+    ImGui::Checkbox("Auto-scroll", &consoleAutoScroll);
+    ImGui::SameLine();
+    if (ImGui::Button("Clear")) consoleLines.clear();
+
+    ImGui::Separator();
+
+    // Show lines
+    for (const auto& line : consoleLines) {
+        ImGui::TextUnformatted(line.c_str());
+    }
+
+    if (consoleAutoScroll && ImGui::GetScrollY() >= ImGui::GetScrollMaxY() - 5.0f) {
+        ImGui::SetScrollHereY(1.0f);
+    }
+
+    ImGui::EndChild();
+}
 
 ImU32 GetEgboltSzin(float h) {
     if (h >= 6.5f && h < 10.0f) return IM_COL32(255, 180, 100, 255); 
@@ -398,24 +434,21 @@ void DrawBalPanel() {
     DrawPowerBar("SEN", 0.20f, IM_COL32(0, 200, 255, 200));
     DrawPowerBar("COM", 0.15f, IM_COL32(255, 200, 0, 200));
 
+    float signal = 0.8f + 0.15f * sinf(time * 0.5f);
+    ImGui::Text("COMMS:"); ImGui::SameLine();
+    ImGui::ProgressBar(signal, ImVec2(80, 15), ""); ImGui::SameLine();
+    ImGui::Text("LATENCY: %dms", (int)(420 + sinf(time) * 10));
+
     ImGui::Separator();
 
-    // --- VIEW SELECTOR ---
-
-    if (ImGui::RadioButton("TOP", currentView == VIEW_TOP)) currentView = VIEW_TOP; ImGui::SameLine();
-    if (ImGui::RadioButton("BACK", currentView == VIEW_BACK)) currentView = VIEW_BACK; ImGui::SameLine();
-    if (ImGui::RadioButton("SIDE", currentView == VIEW_SIDE)) currentView = VIEW_SIDE;
 
     // --- 3. FPV CAMERA ---
     ImGui::Text("LIVE FEED [HD-X2]");
     DrawFPV(ImVec2(region.x, 200));
 
     // --- 4. COMMS STATUS ---
-    ImGui::Separator();
-    float signal = 0.8f + 0.15f * sinf(time * 0.5f);
-    ImGui::Text("COMMS:"); ImGui::SameLine();
-    ImGui::ProgressBar(signal, ImVec2(80, 15), ""); ImGui::SameLine();
-    ImGui::Text("LATENCY: %dms", (int)(420 + sinf(time) * 10));
+    //ImGui::Separator();
+    
 
     //NEW COORDINATE TRACKER (Placed after FPV) ---
     ImGui::Text("NAVIGATION GRID (REL)");
@@ -441,26 +474,58 @@ void DrawBalPanel() {
 
     ImGui::Separator();
 
-    // --- MEGNÖVELT GYÉMÁNT OSZLOPOK ---
-    int total = rover.zold + rover.sarga + rover.kek;
-    ImGui::Text("TOTAL SAMPLES COLLECTED: %d", total);
+    // --- ARÁNYOS GYÉMÁNT OSZLOPOK (goalTotal alapján) ---
+
+    int currentTotal = rover.zold + rover.sarga + rover.kek;
+    ImGui::Text("TOTAL SAMPLES COLLECTED: %d / %d", currentTotal, goalTotal);
     ImGui::Spacing();
 
     ImGui::Columns(3, "res_cols", false);
+
     auto DrawResourceBar = [&](int count, ImU32 color, const char* label) {
+
         ImVec2 p = ImGui::GetCursorScreenPos();
-        float maxHeight = 85.0f; // Magasabb oszlopok
-        float barWidth = 45.0f;  // Szélesebb oszlopok
-        float currentHeight = std::min((float)count * 7.0f, maxHeight); 
-        
-        // Háttér
-        ImGui::GetWindowDrawList()->AddRectFilled(p, ImVec2(p.x + barWidth, p.y + maxHeight), IM_COL32(30, 30, 30, 255));
-        // Oszlop
-        if(currentHeight > 0)
-            ImGui::GetWindowDrawList()->AddRectFilled(ImVec2(p.x, p.y + maxHeight - currentHeight), ImVec2(p.x + barWidth, p.y + maxHeight), color);
-        
-        ImGui::Dummy(ImVec2(barWidth, maxHeight + 5));
-        ImGui::Text("%s: %d", label, count);
+        float maxHeight = 85.0f;
+        float barWidth  = 45.0f;
+
+        // 🔹 IDE jön a ratio számítás
+        float ratio = 0.0f;
+        if (goalTotal > 0)
+            ratio = (float)count / (float)goalTotal;
+
+        float currentHeight = maxHeight * ratio;
+
+        // Background
+        ImGui::GetWindowDrawList()->AddRectFilled(
+            p,
+            ImVec2(p.x + barWidth, p.y + maxHeight),
+            IM_COL32(30, 30, 30, 255)
+        );
+
+        // Filled part
+        if (currentHeight > 0.0f) {
+            ImGui::GetWindowDrawList()->AddRectFilled(
+                ImVec2(p.x, p.y + maxHeight - currentHeight),
+                ImVec2(p.x + barWidth, p.y + maxHeight),
+                color
+            );
+        }
+
+        // 🔹 IDE jön a százalék kiírás
+        char pct[16];
+        snprintf(pct, sizeof(pct), "%d%%", (int)(ratio * 100.0f));
+
+        ImVec2 ts = ImGui::CalcTextSize(pct);
+        ImGui::GetWindowDrawList()->AddText(
+            ImVec2(p.x + (barWidth - ts.x) * 0.5f, p.y - ts.y - 2.0f),
+            IM_COL32(200, 200, 200, 255),
+            pct
+        );
+
+        ImGui::Dummy(ImVec2(barWidth, maxHeight + 8));
+
+        // 🔹 IDE jön az ImGui::Text rész
+        ImGui::Text("%s: %d / %d", label, count, goalTotal);
     };
 
     // --- Inside DrawFPV function ---
@@ -538,44 +603,29 @@ void DrawMap() {
     // Glow effect
     dl->AddCircleFilled(rPos, rSize * 1.5f, IM_COL32(255, 255, 255, 60));
 
-    switch (currentView) {
-        case VIEW_TOP: {
-            float rad = (rover.irany - 90.0f) * (M_PI / 180.0f);
-            ImVec2 p1 = ImVec2(rPos.x + cosf(rad) * rSize, rPos.y + sinf(rad) * rSize);
-            ImVec2 p2 = ImVec2(rPos.x + cosf(rad + 2.3f) * rSize, rPos.y + sinf(rad + 2.3f) * rSize);
-            ImVec2 p3 = ImVec2(rPos.x + cosf(rad - 2.3f) * rSize, rPos.y + sinf(rad - 2.3f) * rSize);
-            dl->AddTriangleFilled(p1, p2, p3, IM_COL32_WHITE);
-            dl->AddTriangle(p1, p2, p3, IM_COL32_BLACK, 1.5f);
-            break;
-        }
-        case VIEW_BACK: {
-            // Chase view representation
-            dl->AddRectFilled(ImVec2(rPos.x - cs, rPos.y - cs/2 + shake), ImVec2(rPos.x + cs, rPos.y + cs/2 + shake), IM_COL32(180, 180, 180, 255));
-            dl->AddRectFilled(ImVec2(rPos.x - cs, rPos.y + cs/4 + shake), ImVec2(rPos.x - cs/2, rPos.y + cs/2 + shake), IM_COL32(255, 0, 0, 255)); // Tail light
-            break;
-        }
-        case VIEW_SIDE: {
-            // Profile view representation
-            dl->AddRectFilled(ImVec2(rPos.x - cs, rPos.y - cs + shake), ImVec2(rPos.x + cs, rPos.y + shake), IM_COL32(160, 160, 160, 255));
-            dl->AddCircleFilled(ImVec2(rPos.x - cs/1.5f, rPos.y + cs/4 + shake), cs/3, IM_COL32_BLACK); // Wheel
-            dl->AddCircleFilled(ImVec2(rPos.x + cs/1.5f, rPos.y + cs/4 + shake), cs/3, IM_COL32_BLACK); // Wheel
-            break;
-        }
-    }
+    // --- ROVER DRAWING (TOP VIEW ONLY) ---
+    float rad = (rover.irany - 90.0f) * (M_PI / 180.0f);
+    ImVec2 p1 = ImVec2(rPos.x + cosf(rad) * rSize, rPos.y + sinf(rad) * rSize);
+    ImVec2 p2 = ImVec2(rPos.x + cosf(rad + 2.3f) * rSize, rPos.y + sinf(rad + 2.3f) * rSize);
+    ImVec2 p3 = ImVec2(rPos.x + cosf(rad - 2.3f) * rSize, rPos.y + sinf(rad - 2.3f) * rSize);
 
-    // --- 4. RÉTEG: KERET ---
+    dl->AddTriangleFilled(p1, p2, p3, IM_COL32_WHITE);
+    dl->AddTriangle(p1, p2, p3, IM_COL32_BLACK, 1.5f);
+        // --- 4. RÉTEG: KERET ---
     dl->AddRect(p, ImVec2(p.x+side, p.y+side), IM_COL32(57, 255, 20, 255), 0, 0, 2.0f);
-    
+
     ImGui::EndChild();
     ImGui::PopStyleVar();
 }
+    
 
 
 void UpdateAILogic() {
-    if (aiRoute.empty() || currentRouteIndex >= (int)aiRoute.size()) {
-        rover.state = STANDING;
-        return;
+    if (aiRoute.empty()) {
+    rover.state = STANDING;
+    return;
     }
+
 
     // Controls how fast the simulation plays back in the GUI
     // 0.016f assumes 60FPS. Increase the 0.1f threshold to slow it down.
@@ -585,6 +635,26 @@ void UpdateAILogic() {
         timeSinceLastStep = 0.0f;
         
         RouteStep& s = aiRoute[currentRouteIndex];
+
+        // --- Console message about the upcoming step ---
+    {
+        std::ostringstream msg;
+        msg << "[#" << s.round << "] ";
+
+        if (s.state == MOVING) {
+            msg << "Rover is going to MOVE to (" << s.x << "," << s.y << ")"
+                << " speed=" << s.speed;
+        } else if (s.state == DIGGING) {
+            msg << "Rover is going to DIG at (" << s.x << "," << s.y << ")";
+        } else {
+            msg << "Rover is going to STAND at (" << s.x << "," << s.y << ")";
+        }
+
+        msg << " | battery=" << (int)s.battery << "%";
+        msg << " | time=" << s.exactTime;
+
+        ConsoleAdd(msg.str());
+    }
 
         // Update direction based on movement
         if (s.x > rover.x) rover.irany = 90.0f;
@@ -622,17 +692,16 @@ void LoadAIRoute(const std::string& filename) {
 
     aiRoute.clear();
     std::string line;
+
     while (std::getline(file, line)) {
-        if (line.empty()) continue; 
+        if (line.empty()) continue;
 
         std::stringstream ss(line);
         std::string cell;
         RouteStep step;
         std::vector<std::string> row;
 
-        while (std::getline(ss, cell, ',')) {
-            row.push_back(cell);
-        }
+        while (std::getline(ss, cell, ',')) row.push_back(cell);
 
         if (row.size() >= 13) {
             try {
@@ -647,7 +716,7 @@ void LoadAIRoute(const std::string& filename) {
                 step.yellow = std::stoi(row[8]);
                 step.blue = std::stoi(row[9]);
                 step.timePeriod = row[10];
-                step.exactTime = std::stof(row[11]); // Correct conversion
+                step.exactTime = std::stof(row[11]);
                 step.stateStr = row[12];
 
                 if (step.stateStr == "MOVING") step.state = MOVING;
@@ -656,11 +725,23 @@ void LoadAIRoute(const std::string& filename) {
 
                 aiRoute.push_back(step);
             } catch (...) {
-                continue; // Skip lines with bad data
+                continue;
             }
         }
     }
+
     file.close();
+
+    // ✅ After loading, set totals from the last step ONCE
+    if (!aiRoute.empty()) {
+        const RouteStep& last = aiRoute.back();
+        goalGreen = last.green;
+        goalYellow = last.yellow;
+        goalBlue = last.blue;
+        goalTotal = goalGreen + goalYellow + goalBlue;
+    } else {
+        goalGreen = goalYellow = goalBlue = goalTotal = 0;
+    }
 }
 
 
@@ -678,63 +759,128 @@ int main() {
     LoadMap("mars_map_50x50.csv");
     LoadAIRoute("ai_route.txt");
 
+
+
     float lastTime = 0.0f;
 
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
-        
+
         float currentTime = (float)glfwGetTime();
         float deltaTime = currentTime - lastTime;
         lastTime = currentTime;
 
-        vilag.ora += vilag.idosebesseg;
-        if (vilag.ora >= 24.0f) vilag.ora = 0.0f;
 
         // 1. START THE FRAME
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
+        // --- AI Update ---
         UpdateAILogic();
+
+        // --- Trigger popup when route finishes (once) ---
+        // NOTE: currentRouteIndex is incremented after applying a step.
+        // When it reaches aiRoute.size(), playback ended.
+        if (!aiRoute.empty() && currentRouteIndex >= (int)aiRoute.size()) {
+            if (!showMissionCompletePopup) {
+                showMissionCompletePopup = true;
+                ImGui::OpenPopup("Mission Complete");
+            }
+        }
 
         // 2. SETUP THE MAIN WINDOW
         ImGui::SetNextWindowPos(ImVec2(0,0));
         ImGui::SetNextWindowSize(ImGui::GetIO().DisplaySize);
         ImGui::Begin("MainControl", nullptr, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoMove);
-        
-        // --- PROJECT TITLE (MOVE THIS HERE) ---
-        ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(57, 255, 20, 255)); 
+
+        // --- PROJECT TITLE ---
+        ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(57, 255, 20, 255));
         ImGui::SetWindowFontScale(1.5f);
-        
+
         float windowWidth = ImGui::GetWindowSize().x;
         float textWidth = ImGui::CalcTextSize("PROJECT: ARES - MARS ROVER MISSION CONTROL").x;
-        ImGui::SetCursorPosX((windowWidth - textWidth) * 0.5f); 
-        
+        ImGui::SetCursorPosX((windowWidth - textWidth) * 0.5f);
+
         ImGui::Text("PROJECT: ARES - MARS ROVER MISSION CONTROL");
-        
+
         ImGui::SetWindowFontScale(1.0f);
         ImGui::PopStyleColor();
         ImGui::Separator();
         ImGui::Spacing();
-        // --------------------------------------
+        // --------------------
 
         // 3. COLUMNS AND PANELS
         float totalWidth = ImGui::GetContentRegionAvail().x;
         ImGui::Columns(2, nullptr, false);
         ImGui::SetColumnWidth(0, totalWidth * 0.35f);
-        
+
         DrawBalPanel();
-        
+
         ImGui::NextColumn();
-        
+
         DrawMap();
-        
+
+        ImGui::Columns(1);
+        ImGui::Separator();
+        DrawMissionConsole(160.0f);
+
         ImGui::End(); // End MainControl
+
+        // --- Mission Complete Popup (modal) ---
+        if (showMissionCompletePopup) {
+            ImVec2 center = ImGui::GetMainViewport()->GetCenter();
+            ImGui::SetNextWindowPos(center, ImGuiCond_Appearing, ImVec2(0.5f, 0.5f));
+            ImGui::SetNextWindowSize(ImVec2(450, 220), ImGuiCond_Appearing);
+
+            if (ImGui::BeginPopupModal("Mission Complete", NULL,
+                ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoMove))
+            {
+                // Optional: check if last step is on 'S'
+                bool returnedHome = false;
+                if (!aiRoute.empty()) {
+                    const RouteStep& last = aiRoute.back();
+                    if (last.y >= 0 && last.y < MAP_H && last.x >= 0 && last.x < MAP_W) {
+                        returnedHome = (mapGrid[last.y][last.x].type == 'S');
+                    }
+                }
+
+                if (returnedHome) {
+                    ImGui::TextWrapped("A rover korbeerett es visszaert a bazisra (S).");
+                } else {
+                    ImGui::TextWrapped("A lejatsszas veget ert. (A rover nem feltetlenul ert vissza az S-re.)");
+                }
+
+                ImGui::Spacing();
+                ImGui::Separator();
+                ImGui::Spacing();
+
+                int total = rover.zold + rover.sarga + rover.kek;
+                ImGui::Text("Osszes minta: %d  (GRN=%d, YLW=%d, BLU=%d)", total, rover.zold, rover.sarga, rover.kek);
+                ImGui::Text("Akkumulator: %d%%", (int)rover.battery);
+                ImGui::Text("Utolso pozicio: [%d, %d]", rover.x, rover.y);
+
+                ImGui::Spacing();
+                ImGui::Spacing();
+
+                if (ImGui::Button("Kilepes", ImVec2(140, 0))) {
+                    glfwSetWindowShouldClose(window, 1);
+                }
+                ImGui::SameLine();
+                if (ImGui::Button("Bezár", ImVec2(140, 0))) {
+                    showMissionCompletePopup = false;
+                    ImGui::CloseCurrentPopup();
+                }
+
+                ImGui::EndPopup();
+            }
+        }
 
         // Rendering
         ImGui::Render();
-        int dw, dh; glfwGetFramebufferSize(window, &dw, &dh);
-        glViewport(0,0,dw,dh);
+        int dw, dh;
+        glfwGetFramebufferSize(window, &dw, &dh);
+        glViewport(0, 0, dw, dh);
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -747,6 +893,6 @@ int main() {
     ImGui::DestroyContext();
     glfwDestroyWindow(window);
     glfwTerminate();
-    
+
     return 0;
 }

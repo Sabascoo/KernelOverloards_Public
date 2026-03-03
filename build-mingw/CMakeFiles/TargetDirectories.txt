@@ -1,0 +1,4 @@
+C:/Users/rikov/Documents/Kernel Overloards/build-mingw/CMakeFiles/main_logic.dir
+C:/Users/rikov/Documents/Kernel Overloards/build-mingw/CMakeFiles/gui.dir
+C:/Users/rikov/Documents/Kernel Overloards/build-mingw/CMakeFiles/edit_cache.dir
+C:/Users/rikov/Documents/Kernel Overloards/build-mingw/CMakeFiles/rebuild_cache.dir
