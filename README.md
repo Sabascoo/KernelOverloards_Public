@@ -118,6 +118,9 @@ cmake --build build-mingw --config Release
 ```
 
 ---
+> **Megjegyzés:** Egyes antivírus programok (pl. Windows Defender/Avast) blokkolhatják az ismeretlen forrásból fordított .exe fájlokat 
+> Ha a program nem indul el, engedélyezzék a mappát az antivírus beállításaiban, vagy várják meg az automatikus vizsgálat végét
+---
 
 ### Linux
 
@@ -140,5 +143,4 @@ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j
 ```
 
-> **Megjegyzés:** Egyes antivírus programok (pl. Windows Defender/Avast) blokkolhatják az ismeretlen forrásból fordított .exe fájlokat 
-> Ha a program nem indul el, engedélyezzék a mappát az antivírus beállításaiban, vagy várják meg az automatikus vizsgálat végét
+
