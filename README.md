@@ -54,7 +54,7 @@ Ezután az alkalmazás a `launcher.exe`-vel indítható:
 ### Linux
 
 ```bash
-cd .../KernelOverloards
+cd ..../KernelOverloards_Public-main 
 cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
 cmake --build build -j
 ./build/launcher
