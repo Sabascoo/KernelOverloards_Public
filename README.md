@@ -7,7 +7,7 @@
 
 ## FONTOS
 
-A csapat többi tagja úgy döntött, hogy nem folytatja a részvételt a versenyen, ezért a projektet a továbbiakban egyedül készítem.
+A csapat többi tagja úgy döntött, hogy nem folytatja a részvételt a versenyen, ezért a projektet végül egyedül készítettem el.
 Kérem a tisztelt zsűri megértését a változásokkal kapcsolatban.
 
 ## Követelmények
