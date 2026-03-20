@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
+  "C:/Users/rikov/Documents/KernelOverloards/launcher.exe"
+  "C:/Users/rikov/Documents/KernelOverloards/launcher.exe.manifest"
+  "C:/Users/rikov/Documents/KernelOverloards/launcher.pdb"
   "CMakeFiles/launcher.dir/src/launcher.c.obj"
   "CMakeFiles/launcher.dir/src/launcher.c.obj.d"
-  "launcher.exe"
-  "launcher.exe.manifest"
-  "launcher.pdb"
   "liblauncher.dll.a"
 )
 
