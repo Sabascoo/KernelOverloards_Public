@@ -13,6 +13,8 @@
 A csapat többi tagja úgy döntött, hogy nem folytatja a részvételt a versenyen, ezért a projektet végül egyedül készítettem el.
 Kérem a tisztelt zsűri megértését a változásokkal kapcsolatban.
 
+- (kérem, hogy a programot a GitHubról, ZIP fájlba csomagolva töltsék le. A csomag tartalmazza a videófelvételt, a README fájlt, valamint az algoritmust bemutató PDF dokumentumot)
+
 ## Programfejlesztői környezet
 
 - Visual Studio Code 1.112
@@ -47,7 +49,7 @@ Ezután az alkalmazás a `launcher.exe`-vel indítható:
 .\build-mingw\launcher.exe
 ```
 
-> a launchert mindig a projekt gyökérkönyvtárából (`KernelOverloards/`) futtasd, ne a `src/` mappából
+> a launchert mindig a projekt gyökérkönyvtárából (`KernelOverloards/`) futtassák, ne a `src/` mappából
 
 ### Linux
 
@@ -71,9 +73,28 @@ cmake --build build -j
 
 | Hiba | Megoldás |
 |---|---|
-| `CMakeLists.txt not found` | Nem a projekt gyökérből futtatod a launchert |
+| `CMakeLists.txt not found` | Nem a projekt gyökérből futtatják a launchert |
 | `mars_map_50x50.csv nem olvasható` | A `data/` mappa hiányzik vagy nincs benne a CSV |
-| `log fajl nem nyithato meg` | Az `output/` mappa nem létezik –> hozd létre kézzel |
-| GUI nem indul el | Ellenőrizd, hogy a `build-mingw/gui.exe` létezik-e |
-| Régi CMakeCache hiba | Töröld a `build-mingw/CMakeCache.txt`-t és a `CMakeFiles/` mappát, majd fordíts újra |
+| `log fajl nem nyithato meg` | Az `output/` mappa nem létezik –> hozzák létre kézzel |
+| GUI nem indul el | Ellenőrizzék, hogy a `build-mingw/gui.exe` létezik-e |
+| Régi CMakeCache hiba | Töröljék a `build-mingw/CMakeCache.txt`-t és a `CMakeFiles/` mappát, majd fordítsák újra |
 
+## Ellenőrzés
+
+- Helyesen letöltött mappa szerkezete így néz ki:
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        18/03/2026     14:34                .vscode
+d-----        18/03/2026     18:25                build-mingw
+d-----        18/03/2026     14:46                data
+d-----        18/03/2026     14:36                glfw
+d-----        18/03/2026     14:34                glfw-3.4.bin.WIN64
+d-----        18/03/2026     17:30                imgui
+d-----        20/03/2026     12:19                KernelOverloards_Public
+d-----        18/03/2026     14:37                New folder
+d-----        18/03/2026     18:09                output
+d-----        18/03/2026     18:06                src
+-a----        18/03/2026     17:31           1963 CMakeLists.txt
+-a----        18/03/2026     18:31            153 imgui.ini
+-a----        20/03/2026     12:00           1824 README.md
