@@ -71,133 +71,133 @@ include CMakeFiles/gui.dir/flags.make
 CMakeFiles/gui.dir/codegen:
 .PHONY : CMakeFiles/gui.dir/codegen
 
-CMakeFiles/gui.dir/gui.cpp.obj: CMakeFiles/gui.dir/flags.make
-CMakeFiles/gui.dir/gui.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
-CMakeFiles/gui.dir/gui.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/gui.cpp
-CMakeFiles/gui.dir/gui.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/gui.dir/gui.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/gui.cpp.obj -MF CMakeFiles\gui.dir\gui.cpp.obj.d -o CMakeFiles\gui.dir\gui.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\gui.cpp
+CMakeFiles/gui.dir/src/gui.cpp.obj: CMakeFiles/gui.dir/flags.make
+CMakeFiles/gui.dir/src/gui.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
+CMakeFiles/gui.dir/src/gui.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/src/gui.cpp
+CMakeFiles/gui.dir/src/gui.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/gui.dir/src/gui.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/src/gui.cpp.obj -MF CMakeFiles\gui.dir\src\gui.cpp.obj.d -o CMakeFiles\gui.dir\src\gui.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\src\gui.cpp
 
-CMakeFiles/gui.dir/gui.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/gui.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\gui.cpp > CMakeFiles\gui.dir\gui.cpp.i
+CMakeFiles/gui.dir/src/gui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/src/gui.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\src\gui.cpp > CMakeFiles\gui.dir\src\gui.cpp.i
 
-CMakeFiles/gui.dir/gui.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/gui.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\gui.cpp -o CMakeFiles\gui.dir\gui.cpp.s
+CMakeFiles/gui.dir/src/gui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/src/gui.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\src\gui.cpp -o CMakeFiles\gui.dir\src\gui.cpp.s
 
-CMakeFiles/gui.dir/imgui.cpp.obj: CMakeFiles/gui.dir/flags.make
-CMakeFiles/gui.dir/imgui.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
-CMakeFiles/gui.dir/imgui.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/imgui.cpp
-CMakeFiles/gui.dir/imgui.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/gui.dir/imgui.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/imgui.cpp.obj -MF CMakeFiles\gui.dir\imgui.cpp.obj.d -o CMakeFiles\gui.dir\imgui.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\imgui.cpp
+CMakeFiles/gui.dir/imgui/imgui.cpp.obj: CMakeFiles/gui.dir/flags.make
+CMakeFiles/gui.dir/imgui/imgui.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
+CMakeFiles/gui.dir/imgui/imgui.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/imgui/imgui.cpp
+CMakeFiles/gui.dir/imgui/imgui.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/gui.dir/imgui/imgui.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/imgui/imgui.cpp.obj -MF CMakeFiles\gui.dir\imgui\imgui.cpp.obj.d -o CMakeFiles\gui.dir\imgui\imgui.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\imgui\imgui.cpp
 
-CMakeFiles/gui.dir/imgui.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/imgui.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\imgui.cpp > CMakeFiles\gui.dir\imgui.cpp.i
+CMakeFiles/gui.dir/imgui/imgui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/imgui/imgui.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\imgui\imgui.cpp > CMakeFiles\gui.dir\imgui\imgui.cpp.i
 
-CMakeFiles/gui.dir/imgui.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/imgui.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\imgui.cpp -o CMakeFiles\gui.dir\imgui.cpp.s
+CMakeFiles/gui.dir/imgui/imgui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/imgui/imgui.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\imgui\imgui.cpp -o CMakeFiles\gui.dir\imgui\imgui.cpp.s
 
-CMakeFiles/gui.dir/imgui_draw.cpp.obj: CMakeFiles/gui.dir/flags.make
-CMakeFiles/gui.dir/imgui_draw.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
-CMakeFiles/gui.dir/imgui_draw.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/imgui_draw.cpp
-CMakeFiles/gui.dir/imgui_draw.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gui.dir/imgui_draw.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/imgui_draw.cpp.obj -MF CMakeFiles\gui.dir\imgui_draw.cpp.obj.d -o CMakeFiles\gui.dir\imgui_draw.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\imgui_draw.cpp
+CMakeFiles/gui.dir/imgui/imgui_draw.cpp.obj: CMakeFiles/gui.dir/flags.make
+CMakeFiles/gui.dir/imgui/imgui_draw.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
+CMakeFiles/gui.dir/imgui/imgui_draw.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/imgui/imgui_draw.cpp
+CMakeFiles/gui.dir/imgui/imgui_draw.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/gui.dir/imgui/imgui_draw.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/imgui/imgui_draw.cpp.obj -MF CMakeFiles\gui.dir\imgui\imgui_draw.cpp.obj.d -o CMakeFiles\gui.dir\imgui\imgui_draw.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_draw.cpp
 
-CMakeFiles/gui.dir/imgui_draw.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/imgui_draw.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\imgui_draw.cpp > CMakeFiles\gui.dir\imgui_draw.cpp.i
+CMakeFiles/gui.dir/imgui/imgui_draw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/imgui/imgui_draw.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_draw.cpp > CMakeFiles\gui.dir\imgui\imgui_draw.cpp.i
 
-CMakeFiles/gui.dir/imgui_draw.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/imgui_draw.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\imgui_draw.cpp -o CMakeFiles\gui.dir\imgui_draw.cpp.s
+CMakeFiles/gui.dir/imgui/imgui_draw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/imgui/imgui_draw.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_draw.cpp -o CMakeFiles\gui.dir\imgui\imgui_draw.cpp.s
 
-CMakeFiles/gui.dir/imgui_widgets.cpp.obj: CMakeFiles/gui.dir/flags.make
-CMakeFiles/gui.dir/imgui_widgets.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
-CMakeFiles/gui.dir/imgui_widgets.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/imgui_widgets.cpp
-CMakeFiles/gui.dir/imgui_widgets.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gui.dir/imgui_widgets.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/imgui_widgets.cpp.obj -MF CMakeFiles\gui.dir\imgui_widgets.cpp.obj.d -o CMakeFiles\gui.dir\imgui_widgets.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\imgui_widgets.cpp
+CMakeFiles/gui.dir/imgui/imgui_tables.cpp.obj: CMakeFiles/gui.dir/flags.make
+CMakeFiles/gui.dir/imgui/imgui_tables.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
+CMakeFiles/gui.dir/imgui/imgui_tables.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/imgui/imgui_tables.cpp
+CMakeFiles/gui.dir/imgui/imgui_tables.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/gui.dir/imgui/imgui_tables.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/imgui/imgui_tables.cpp.obj -MF CMakeFiles\gui.dir\imgui\imgui_tables.cpp.obj.d -o CMakeFiles\gui.dir\imgui\imgui_tables.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_tables.cpp
 
-CMakeFiles/gui.dir/imgui_widgets.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/imgui_widgets.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\imgui_widgets.cpp > CMakeFiles\gui.dir\imgui_widgets.cpp.i
+CMakeFiles/gui.dir/imgui/imgui_tables.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/imgui/imgui_tables.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_tables.cpp > CMakeFiles\gui.dir\imgui\imgui_tables.cpp.i
 
-CMakeFiles/gui.dir/imgui_widgets.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/imgui_widgets.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\imgui_widgets.cpp -o CMakeFiles\gui.dir\imgui_widgets.cpp.s
+CMakeFiles/gui.dir/imgui/imgui_tables.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/imgui/imgui_tables.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_tables.cpp -o CMakeFiles\gui.dir\imgui\imgui_tables.cpp.s
 
-CMakeFiles/gui.dir/imgui_tables.cpp.obj: CMakeFiles/gui.dir/flags.make
-CMakeFiles/gui.dir/imgui_tables.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
-CMakeFiles/gui.dir/imgui_tables.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/imgui_tables.cpp
-CMakeFiles/gui.dir/imgui_tables.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/gui.dir/imgui_tables.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/imgui_tables.cpp.obj -MF CMakeFiles\gui.dir\imgui_tables.cpp.obj.d -o CMakeFiles\gui.dir\imgui_tables.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\imgui_tables.cpp
+CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.obj: CMakeFiles/gui.dir/flags.make
+CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
+CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/imgui/imgui_widgets.cpp
+CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.obj -MF CMakeFiles\gui.dir\imgui\imgui_widgets.cpp.obj.d -o CMakeFiles\gui.dir\imgui\imgui_widgets.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_widgets.cpp
 
-CMakeFiles/gui.dir/imgui_tables.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/imgui_tables.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\imgui_tables.cpp > CMakeFiles\gui.dir\imgui_tables.cpp.i
+CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_widgets.cpp > CMakeFiles\gui.dir\imgui\imgui_widgets.cpp.i
 
-CMakeFiles/gui.dir/imgui_tables.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/imgui_tables.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\imgui_tables.cpp -o CMakeFiles\gui.dir\imgui_tables.cpp.s
+CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_widgets.cpp -o CMakeFiles\gui.dir\imgui\imgui_widgets.cpp.s
 
-CMakeFiles/gui.dir/imgui_impl_glfw.cpp.obj: CMakeFiles/gui.dir/flags.make
-CMakeFiles/gui.dir/imgui_impl_glfw.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
-CMakeFiles/gui.dir/imgui_impl_glfw.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/imgui_impl_glfw.cpp
-CMakeFiles/gui.dir/imgui_impl_glfw.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/gui.dir/imgui_impl_glfw.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/imgui_impl_glfw.cpp.obj -MF CMakeFiles\gui.dir\imgui_impl_glfw.cpp.obj.d -o CMakeFiles\gui.dir\imgui_impl_glfw.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\imgui_impl_glfw.cpp
+CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.obj: CMakeFiles/gui.dir/flags.make
+CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
+CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/imgui/imgui_impl_glfw.cpp
+CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.obj -MF CMakeFiles\gui.dir\imgui\imgui_impl_glfw.cpp.obj.d -o CMakeFiles\gui.dir\imgui\imgui_impl_glfw.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_impl_glfw.cpp
 
-CMakeFiles/gui.dir/imgui_impl_glfw.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/imgui_impl_glfw.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\imgui_impl_glfw.cpp > CMakeFiles\gui.dir\imgui_impl_glfw.cpp.i
+CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_impl_glfw.cpp > CMakeFiles\gui.dir\imgui\imgui_impl_glfw.cpp.i
 
-CMakeFiles/gui.dir/imgui_impl_glfw.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/imgui_impl_glfw.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\imgui_impl_glfw.cpp -o CMakeFiles\gui.dir\imgui_impl_glfw.cpp.s
+CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_impl_glfw.cpp -o CMakeFiles\gui.dir\imgui\imgui_impl_glfw.cpp.s
 
-CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.obj: CMakeFiles/gui.dir/flags.make
-CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
-CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/imgui_impl_opengl3.cpp
-CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.obj -MF CMakeFiles\gui.dir\imgui_impl_opengl3.cpp.obj.d -o CMakeFiles\gui.dir\imgui_impl_opengl3.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\imgui_impl_opengl3.cpp
+CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.obj: CMakeFiles/gui.dir/flags.make
+CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.obj: CMakeFiles/gui.dir/includes_CXX.rsp
+CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.obj: C:/Users/rikov/Documents/KernelOverloards/imgui/imgui_impl_opengl3.cpp
+CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.obj: CMakeFiles/gui.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.obj -MF CMakeFiles\gui.dir\imgui\imgui_impl_opengl3.cpp.obj.d -o CMakeFiles\gui.dir\imgui\imgui_impl_opengl3.cpp.obj -c C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_impl_opengl3.cpp
 
-CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\imgui_impl_opengl3.cpp > CMakeFiles\gui.dir\imgui_impl_opengl3.cpp.i
+CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_impl_opengl3.cpp > CMakeFiles\gui.dir\imgui\imgui_impl_opengl3.cpp.i
 
-CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\imgui_impl_opengl3.cpp -o CMakeFiles\gui.dir\imgui_impl_opengl3.cpp.s
+CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\imgui\imgui_impl_opengl3.cpp -o CMakeFiles\gui.dir\imgui\imgui_impl_opengl3.cpp.s
 
 # Object files for target gui
 gui_OBJECTS = \
-"CMakeFiles/gui.dir/gui.cpp.obj" \
-"CMakeFiles/gui.dir/imgui.cpp.obj" \
-"CMakeFiles/gui.dir/imgui_draw.cpp.obj" \
-"CMakeFiles/gui.dir/imgui_widgets.cpp.obj" \
-"CMakeFiles/gui.dir/imgui_tables.cpp.obj" \
-"CMakeFiles/gui.dir/imgui_impl_glfw.cpp.obj" \
-"CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.obj"
+"CMakeFiles/gui.dir/src/gui.cpp.obj" \
+"CMakeFiles/gui.dir/imgui/imgui.cpp.obj" \
+"CMakeFiles/gui.dir/imgui/imgui_draw.cpp.obj" \
+"CMakeFiles/gui.dir/imgui/imgui_tables.cpp.obj" \
+"CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.obj" \
+"CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.obj" \
+"CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.obj"
 
 # External object files for target gui
 gui_EXTERNAL_OBJECTS =
 
-gui.exe: CMakeFiles/gui.dir/gui.cpp.obj
-gui.exe: CMakeFiles/gui.dir/imgui.cpp.obj
-gui.exe: CMakeFiles/gui.dir/imgui_draw.cpp.obj
-gui.exe: CMakeFiles/gui.dir/imgui_widgets.cpp.obj
-gui.exe: CMakeFiles/gui.dir/imgui_tables.cpp.obj
-gui.exe: CMakeFiles/gui.dir/imgui_impl_glfw.cpp.obj
-gui.exe: CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.obj
+gui.exe: CMakeFiles/gui.dir/src/gui.cpp.obj
+gui.exe: CMakeFiles/gui.dir/imgui/imgui.cpp.obj
+gui.exe: CMakeFiles/gui.dir/imgui/imgui_draw.cpp.obj
+gui.exe: CMakeFiles/gui.dir/imgui/imgui_tables.cpp.obj
+gui.exe: CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.obj
+gui.exe: CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.obj
+gui.exe: CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.obj
 gui.exe: CMakeFiles/gui.dir/build.make
-gui.exe: C:/msys64/mingw64/lib/libglfw3.dll.a
+gui.exe: C:/Users/rikov/Documents/KernelOverloards/glfw-3.4.bin.WIN64/lib-mingw-w64/libglfw3.a
 gui.exe: CMakeFiles/gui.dir/linkLibs.rsp
 gui.exe: CMakeFiles/gui.dir/objects1.rsp
 gui.exe: CMakeFiles/gui.dir/link.txt

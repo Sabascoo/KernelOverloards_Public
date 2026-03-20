@@ -71,28 +71,28 @@ include CMakeFiles/main_logic.dir/flags.make
 CMakeFiles/main_logic.dir/codegen:
 .PHONY : CMakeFiles/main_logic.dir/codegen
 
-CMakeFiles/main_logic.dir/main.c.obj: CMakeFiles/main_logic.dir/flags.make
-CMakeFiles/main_logic.dir/main.c.obj: C:/Users/rikov/Documents/KernelOverloards/main.c
-CMakeFiles/main_logic.dir/main.c.obj: CMakeFiles/main_logic.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main_logic.dir/main.c.obj"
-	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_logic.dir/main.c.obj -MF CMakeFiles\main_logic.dir\main.c.obj.d -o CMakeFiles\main_logic.dir\main.c.obj -c C:\Users\rikov\Documents\KernelOverloards\main.c
+CMakeFiles/main_logic.dir/src/rover_sim.c.obj: CMakeFiles/main_logic.dir/flags.make
+CMakeFiles/main_logic.dir/src/rover_sim.c.obj: C:/Users/rikov/Documents/KernelOverloards/src/rover_sim.c
+CMakeFiles/main_logic.dir/src/rover_sim.c.obj: CMakeFiles/main_logic.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main_logic.dir/src/rover_sim.c.obj"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main_logic.dir/src/rover_sim.c.obj -MF CMakeFiles\main_logic.dir\src\rover_sim.c.obj.d -o CMakeFiles\main_logic.dir\src\rover_sim.c.obj -c C:\Users\rikov\Documents\KernelOverloards\src\rover_sim.c
 
-CMakeFiles/main_logic.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_logic.dir/main.c.i"
-	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\main.c > CMakeFiles\main_logic.dir\main.c.i
+CMakeFiles/main_logic.dir/src/rover_sim.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main_logic.dir/src/rover_sim.c.i"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\rikov\Documents\KernelOverloards\src\rover_sim.c > CMakeFiles\main_logic.dir\src\rover_sim.c.i
 
-CMakeFiles/main_logic.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_logic.dir/main.c.s"
-	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\main.c -o CMakeFiles\main_logic.dir\main.c.s
+CMakeFiles/main_logic.dir/src/rover_sim.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main_logic.dir/src/rover_sim.c.s"
+	C:\msys64\mingw64\bin\cc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\rikov\Documents\KernelOverloards\src\rover_sim.c -o CMakeFiles\main_logic.dir\src\rover_sim.c.s
 
 # Object files for target main_logic
 main_logic_OBJECTS = \
-"CMakeFiles/main_logic.dir/main.c.obj"
+"CMakeFiles/main_logic.dir/src/rover_sim.c.obj"
 
 # External object files for target main_logic
 main_logic_EXTERNAL_OBJECTS =
 
-main_logic.exe: CMakeFiles/main_logic.dir/main.c.obj
+main_logic.exe: CMakeFiles/main_logic.dir/src/rover_sim.c.obj
 main_logic.exe: CMakeFiles/main_logic.dir/build.make
 main_logic.exe: CMakeFiles/main_logic.dir/linkLibs.rsp
 main_logic.exe: CMakeFiles/main_logic.dir/objects1.rsp

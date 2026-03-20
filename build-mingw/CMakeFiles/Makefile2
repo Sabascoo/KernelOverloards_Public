@@ -64,11 +64,13 @@ CMAKE_BINARY_DIR = C:\Users\rikov\Documents\KernelOverloards\build-mingw
 # The main recursive "all" target.
 all: CMakeFiles/main_logic.dir/all
 all: CMakeFiles/gui.dir/all
+all: CMakeFiles/launcher.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/main_logic.dir/codegen
 codegen: CMakeFiles/gui.dir/codegen
+codegen: CMakeFiles/launcher.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -78,6 +80,7 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/main_logic.dir/clean
 clean: CMakeFiles/gui.dir/clean
+clean: CMakeFiles/launcher.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -87,7 +90,7 @@ clean: CMakeFiles/gui.dir/clean
 CMakeFiles/main_logic.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_logic.dir\build.make CMakeFiles/main_logic.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_logic.dir\build.make CMakeFiles/main_logic.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=9,10 "Built target main_logic"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=11,12 "Built target main_logic"
 .PHONY : CMakeFiles/main_logic.dir/all
 
 # Build rule for subdir invocation for target.
@@ -104,7 +107,7 @@ main_logic: CMakeFiles/main_logic.dir/rule
 # codegen rule for target.
 CMakeFiles/main_logic.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_logic.dir\build.make CMakeFiles/main_logic.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=9,10 "Finished codegen for target main_logic"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=11,12 "Finished codegen for target main_logic"
 .PHONY : CMakeFiles/main_logic.dir/codegen
 
 # clean rule for target.
@@ -143,6 +146,38 @@ CMakeFiles/gui.dir/codegen:
 CMakeFiles/gui.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/clean
 .PHONY : CMakeFiles/gui.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/launcher.dir
+
+# All Build rule for target.
+CMakeFiles/launcher.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\launcher.dir\build.make CMakeFiles/launcher.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\launcher.dir\build.make CMakeFiles/launcher.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=9,10 "Built target launcher"
+.PHONY : CMakeFiles/launcher.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/launcher.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/launcher.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles 0
+.PHONY : CMakeFiles/launcher.dir/rule
+
+# Convenience name for target.
+launcher: CMakeFiles/launcher.dir/rule
+.PHONY : launcher
+
+# codegen rule for target.
+CMakeFiles/launcher.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\launcher.dir\build.make CMakeFiles/launcher.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\rikov\Documents\KernelOverloards\build-mingw\CMakeFiles --progress-num=9,10 "Finished codegen for target launcher"
+.PHONY : CMakeFiles/launcher.dir/codegen
+
+# clean rule for target.
+CMakeFiles/launcher.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\launcher.dir\build.make CMakeFiles/launcher.dir/clean
+.PHONY : CMakeFiles/launcher.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

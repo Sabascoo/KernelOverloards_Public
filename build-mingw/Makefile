@@ -141,197 +141,234 @@ gui/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/build
 .PHONY : gui/fast
 
-gui.obj: gui.cpp.obj
-.PHONY : gui.obj
+#=============================================================================
+# Target rules for targets named launcher
+
+# Build rule for target.
+launcher: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 launcher
+.PHONY : launcher
+
+# fast build rule for target.
+launcher/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\launcher.dir\build.make CMakeFiles/launcher.dir/build
+.PHONY : launcher/fast
+
+imgui/imgui.obj: imgui/imgui.cpp.obj
+.PHONY : imgui/imgui.obj
 
 # target to build an object file
-gui.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/gui.cpp.obj
-.PHONY : gui.cpp.obj
+imgui/imgui.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui.cpp.obj
+.PHONY : imgui/imgui.cpp.obj
 
-gui.i: gui.cpp.i
-.PHONY : gui.i
+imgui/imgui.i: imgui/imgui.cpp.i
+.PHONY : imgui/imgui.i
 
 # target to preprocess a source file
-gui.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/gui.cpp.i
-.PHONY : gui.cpp.i
+imgui/imgui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui.cpp.i
+.PHONY : imgui/imgui.cpp.i
 
-gui.s: gui.cpp.s
-.PHONY : gui.s
+imgui/imgui.s: imgui/imgui.cpp.s
+.PHONY : imgui/imgui.s
 
 # target to generate assembly for a file
-gui.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/gui.cpp.s
-.PHONY : gui.cpp.s
+imgui/imgui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui.cpp.s
+.PHONY : imgui/imgui.cpp.s
 
-imgui.obj: imgui.cpp.obj
-.PHONY : imgui.obj
+imgui/imgui_draw.obj: imgui/imgui_draw.cpp.obj
+.PHONY : imgui/imgui_draw.obj
 
 # target to build an object file
-imgui.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui.cpp.obj
-.PHONY : imgui.cpp.obj
+imgui/imgui_draw.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_draw.cpp.obj
+.PHONY : imgui/imgui_draw.cpp.obj
 
-imgui.i: imgui.cpp.i
-.PHONY : imgui.i
+imgui/imgui_draw.i: imgui/imgui_draw.cpp.i
+.PHONY : imgui/imgui_draw.i
 
 # target to preprocess a source file
-imgui.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui.cpp.i
-.PHONY : imgui.cpp.i
+imgui/imgui_draw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_draw.cpp.i
+.PHONY : imgui/imgui_draw.cpp.i
 
-imgui.s: imgui.cpp.s
-.PHONY : imgui.s
+imgui/imgui_draw.s: imgui/imgui_draw.cpp.s
+.PHONY : imgui/imgui_draw.s
 
 # target to generate assembly for a file
-imgui.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui.cpp.s
-.PHONY : imgui.cpp.s
+imgui/imgui_draw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_draw.cpp.s
+.PHONY : imgui/imgui_draw.cpp.s
 
-imgui_draw.obj: imgui_draw.cpp.obj
-.PHONY : imgui_draw.obj
+imgui/imgui_impl_glfw.obj: imgui/imgui_impl_glfw.cpp.obj
+.PHONY : imgui/imgui_impl_glfw.obj
 
 # target to build an object file
-imgui_draw.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_draw.cpp.obj
-.PHONY : imgui_draw.cpp.obj
+imgui/imgui_impl_glfw.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.obj
+.PHONY : imgui/imgui_impl_glfw.cpp.obj
 
-imgui_draw.i: imgui_draw.cpp.i
-.PHONY : imgui_draw.i
+imgui/imgui_impl_glfw.i: imgui/imgui_impl_glfw.cpp.i
+.PHONY : imgui/imgui_impl_glfw.i
 
 # target to preprocess a source file
-imgui_draw.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_draw.cpp.i
-.PHONY : imgui_draw.cpp.i
+imgui/imgui_impl_glfw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.i
+.PHONY : imgui/imgui_impl_glfw.cpp.i
 
-imgui_draw.s: imgui_draw.cpp.s
-.PHONY : imgui_draw.s
+imgui/imgui_impl_glfw.s: imgui/imgui_impl_glfw.cpp.s
+.PHONY : imgui/imgui_impl_glfw.s
 
 # target to generate assembly for a file
-imgui_draw.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_draw.cpp.s
-.PHONY : imgui_draw.cpp.s
+imgui/imgui_impl_glfw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_impl_glfw.cpp.s
+.PHONY : imgui/imgui_impl_glfw.cpp.s
 
-imgui_impl_glfw.obj: imgui_impl_glfw.cpp.obj
-.PHONY : imgui_impl_glfw.obj
+imgui/imgui_impl_opengl3.obj: imgui/imgui_impl_opengl3.cpp.obj
+.PHONY : imgui/imgui_impl_opengl3.obj
 
 # target to build an object file
-imgui_impl_glfw.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_impl_glfw.cpp.obj
-.PHONY : imgui_impl_glfw.cpp.obj
+imgui/imgui_impl_opengl3.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.obj
+.PHONY : imgui/imgui_impl_opengl3.cpp.obj
 
-imgui_impl_glfw.i: imgui_impl_glfw.cpp.i
-.PHONY : imgui_impl_glfw.i
+imgui/imgui_impl_opengl3.i: imgui/imgui_impl_opengl3.cpp.i
+.PHONY : imgui/imgui_impl_opengl3.i
 
 # target to preprocess a source file
-imgui_impl_glfw.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_impl_glfw.cpp.i
-.PHONY : imgui_impl_glfw.cpp.i
+imgui/imgui_impl_opengl3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.i
+.PHONY : imgui/imgui_impl_opengl3.cpp.i
 
-imgui_impl_glfw.s: imgui_impl_glfw.cpp.s
-.PHONY : imgui_impl_glfw.s
+imgui/imgui_impl_opengl3.s: imgui/imgui_impl_opengl3.cpp.s
+.PHONY : imgui/imgui_impl_opengl3.s
 
 # target to generate assembly for a file
-imgui_impl_glfw.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_impl_glfw.cpp.s
-.PHONY : imgui_impl_glfw.cpp.s
+imgui/imgui_impl_opengl3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_impl_opengl3.cpp.s
+.PHONY : imgui/imgui_impl_opengl3.cpp.s
 
-imgui_impl_opengl3.obj: imgui_impl_opengl3.cpp.obj
-.PHONY : imgui_impl_opengl3.obj
+imgui/imgui_tables.obj: imgui/imgui_tables.cpp.obj
+.PHONY : imgui/imgui_tables.obj
 
 # target to build an object file
-imgui_impl_opengl3.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.obj
-.PHONY : imgui_impl_opengl3.cpp.obj
+imgui/imgui_tables.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_tables.cpp.obj
+.PHONY : imgui/imgui_tables.cpp.obj
 
-imgui_impl_opengl3.i: imgui_impl_opengl3.cpp.i
-.PHONY : imgui_impl_opengl3.i
+imgui/imgui_tables.i: imgui/imgui_tables.cpp.i
+.PHONY : imgui/imgui_tables.i
 
 # target to preprocess a source file
-imgui_impl_opengl3.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.i
-.PHONY : imgui_impl_opengl3.cpp.i
+imgui/imgui_tables.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_tables.cpp.i
+.PHONY : imgui/imgui_tables.cpp.i
 
-imgui_impl_opengl3.s: imgui_impl_opengl3.cpp.s
-.PHONY : imgui_impl_opengl3.s
+imgui/imgui_tables.s: imgui/imgui_tables.cpp.s
+.PHONY : imgui/imgui_tables.s
 
 # target to generate assembly for a file
-imgui_impl_opengl3.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_impl_opengl3.cpp.s
-.PHONY : imgui_impl_opengl3.cpp.s
+imgui/imgui_tables.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_tables.cpp.s
+.PHONY : imgui/imgui_tables.cpp.s
 
-imgui_tables.obj: imgui_tables.cpp.obj
-.PHONY : imgui_tables.obj
+imgui/imgui_widgets.obj: imgui/imgui_widgets.cpp.obj
+.PHONY : imgui/imgui_widgets.obj
 
 # target to build an object file
-imgui_tables.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_tables.cpp.obj
-.PHONY : imgui_tables.cpp.obj
+imgui/imgui_widgets.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.obj
+.PHONY : imgui/imgui_widgets.cpp.obj
 
-imgui_tables.i: imgui_tables.cpp.i
-.PHONY : imgui_tables.i
+imgui/imgui_widgets.i: imgui/imgui_widgets.cpp.i
+.PHONY : imgui/imgui_widgets.i
 
 # target to preprocess a source file
-imgui_tables.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_tables.cpp.i
-.PHONY : imgui_tables.cpp.i
+imgui/imgui_widgets.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.i
+.PHONY : imgui/imgui_widgets.cpp.i
 
-imgui_tables.s: imgui_tables.cpp.s
-.PHONY : imgui_tables.s
+imgui/imgui_widgets.s: imgui/imgui_widgets.cpp.s
+.PHONY : imgui/imgui_widgets.s
 
 # target to generate assembly for a file
-imgui_tables.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_tables.cpp.s
-.PHONY : imgui_tables.cpp.s
+imgui/imgui_widgets.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui/imgui_widgets.cpp.s
+.PHONY : imgui/imgui_widgets.cpp.s
 
-imgui_widgets.obj: imgui_widgets.cpp.obj
-.PHONY : imgui_widgets.obj
+src/gui.obj: src/gui.cpp.obj
+.PHONY : src/gui.obj
 
 # target to build an object file
-imgui_widgets.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_widgets.cpp.obj
-.PHONY : imgui_widgets.cpp.obj
+src/gui.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/src/gui.cpp.obj
+.PHONY : src/gui.cpp.obj
 
-imgui_widgets.i: imgui_widgets.cpp.i
-.PHONY : imgui_widgets.i
+src/gui.i: src/gui.cpp.i
+.PHONY : src/gui.i
 
 # target to preprocess a source file
-imgui_widgets.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_widgets.cpp.i
-.PHONY : imgui_widgets.cpp.i
+src/gui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/src/gui.cpp.i
+.PHONY : src/gui.cpp.i
 
-imgui_widgets.s: imgui_widgets.cpp.s
-.PHONY : imgui_widgets.s
+src/gui.s: src/gui.cpp.s
+.PHONY : src/gui.s
 
 # target to generate assembly for a file
-imgui_widgets.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/imgui_widgets.cpp.s
-.PHONY : imgui_widgets.cpp.s
+src/gui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\gui.dir\build.make CMakeFiles/gui.dir/src/gui.cpp.s
+.PHONY : src/gui.cpp.s
 
-main.obj: main.c.obj
-.PHONY : main.obj
+src/launcher.obj: src/launcher.c.obj
+.PHONY : src/launcher.obj
 
 # target to build an object file
-main.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_logic.dir\build.make CMakeFiles/main_logic.dir/main.c.obj
-.PHONY : main.c.obj
+src/launcher.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\launcher.dir\build.make CMakeFiles/launcher.dir/src/launcher.c.obj
+.PHONY : src/launcher.c.obj
 
-main.i: main.c.i
-.PHONY : main.i
+src/launcher.i: src/launcher.c.i
+.PHONY : src/launcher.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_logic.dir\build.make CMakeFiles/main_logic.dir/main.c.i
-.PHONY : main.c.i
+src/launcher.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\launcher.dir\build.make CMakeFiles/launcher.dir/src/launcher.c.i
+.PHONY : src/launcher.c.i
 
-main.s: main.c.s
-.PHONY : main.s
+src/launcher.s: src/launcher.c.s
+.PHONY : src/launcher.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_logic.dir\build.make CMakeFiles/main_logic.dir/main.c.s
-.PHONY : main.c.s
+src/launcher.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\launcher.dir\build.make CMakeFiles/launcher.dir/src/launcher.c.s
+.PHONY : src/launcher.c.s
+
+src/rover_sim.obj: src/rover_sim.c.obj
+.PHONY : src/rover_sim.obj
+
+# target to build an object file
+src/rover_sim.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_logic.dir\build.make CMakeFiles/main_logic.dir/src/rover_sim.c.obj
+.PHONY : src/rover_sim.c.obj
+
+src/rover_sim.i: src/rover_sim.c.i
+.PHONY : src/rover_sim.i
+
+# target to preprocess a source file
+src/rover_sim.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_logic.dir\build.make CMakeFiles/main_logic.dir/src/rover_sim.c.i
+.PHONY : src/rover_sim.c.i
+
+src/rover_sim.s: src/rover_sim.c.s
+.PHONY : src/rover_sim.s
+
+# target to generate assembly for a file
+src/rover_sim.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main_logic.dir\build.make CMakeFiles/main_logic.dir/src/rover_sim.c.s
+.PHONY : src/rover_sim.c.s
 
 # Help Target
 help:
@@ -342,31 +379,35 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... gui
+	@echo ... launcher
 	@echo ... main_logic
-	@echo ... gui.obj
-	@echo ... gui.i
-	@echo ... gui.s
-	@echo ... imgui.obj
-	@echo ... imgui.i
-	@echo ... imgui.s
-	@echo ... imgui_draw.obj
-	@echo ... imgui_draw.i
-	@echo ... imgui_draw.s
-	@echo ... imgui_impl_glfw.obj
-	@echo ... imgui_impl_glfw.i
-	@echo ... imgui_impl_glfw.s
-	@echo ... imgui_impl_opengl3.obj
-	@echo ... imgui_impl_opengl3.i
-	@echo ... imgui_impl_opengl3.s
-	@echo ... imgui_tables.obj
-	@echo ... imgui_tables.i
-	@echo ... imgui_tables.s
-	@echo ... imgui_widgets.obj
-	@echo ... imgui_widgets.i
-	@echo ... imgui_widgets.s
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
+	@echo ... imgui/imgui.obj
+	@echo ... imgui/imgui.i
+	@echo ... imgui/imgui.s
+	@echo ... imgui/imgui_draw.obj
+	@echo ... imgui/imgui_draw.i
+	@echo ... imgui/imgui_draw.s
+	@echo ... imgui/imgui_impl_glfw.obj
+	@echo ... imgui/imgui_impl_glfw.i
+	@echo ... imgui/imgui_impl_glfw.s
+	@echo ... imgui/imgui_impl_opengl3.obj
+	@echo ... imgui/imgui_impl_opengl3.i
+	@echo ... imgui/imgui_impl_opengl3.s
+	@echo ... imgui/imgui_tables.obj
+	@echo ... imgui/imgui_tables.i
+	@echo ... imgui/imgui_tables.s
+	@echo ... imgui/imgui_widgets.obj
+	@echo ... imgui/imgui_widgets.i
+	@echo ... imgui/imgui_widgets.s
+	@echo ... src/gui.obj
+	@echo ... src/gui.i
+	@echo ... src/gui.s
+	@echo ... src/launcher.obj
+	@echo ... src/launcher.i
+	@echo ... src/launcher.s
+	@echo ... src/rover_sim.obj
+	@echo ... src/rover_sim.i
+	@echo ... src/rover_sim.s
 .PHONY : help
 
 

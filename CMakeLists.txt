@@ -1,52 +1,62 @@
 cmake_minimum_required(VERSION 3.16)
-project(MissionControl C CXX)
+project(RoverMission C CXX)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
-# --- main logic ---
-add_executable(main_logic main.c)
+# ---------------------------------------------------------------
+# Paths
+# ---------------------------------------------------------------
+set(IMGUI_DIR  ${CMAKE_SOURCE_DIR}/imgui)
+set(GLFW_INC   ${CMAKE_SOURCE_DIR}/glfw)
+set(GLFW_LIB   ${CMAKE_SOURCE_DIR}/glfw-3.4.bin.WIN64/lib-mingw-w64)
 
-# --- GUI ---
-add_executable(gui
-    gui.cpp
-    imgui.cpp
-    imgui_draw.cpp
-    imgui_widgets.cpp
-    imgui_tables.cpp
-    imgui_impl_glfw.cpp
-    imgui_impl_opengl3.cpp
+# ---------------------------------------------------------------
+# main_logic  (src/rover_sim.c)
+# ---------------------------------------------------------------
+add_executable(main_logic src/rover_sim.c)
+target_link_libraries(main_logic PRIVATE m)
+
+# ---------------------------------------------------------------
+# gui  (src/gui.cpp + ImGui + GLFW/OpenGL3)
+# ---------------------------------------------------------------
+set(IMGUI_SOURCES
+    ${IMGUI_DIR}/imgui.cpp
+    ${IMGUI_DIR}/imgui_draw.cpp
+    ${IMGUI_DIR}/imgui_tables.cpp
+    ${IMGUI_DIR}/imgui_widgets.cpp
+    ${IMGUI_DIR}/imgui_impl_glfw.cpp
+    ${IMGUI_DIR}/imgui_impl_opengl3.cpp
 )
 
-# ImGui backend include-hoz tipikusan kell:
-target_include_directories(gui PRIVATE .)
+add_executable(gui src/gui.cpp ${IMGUI_SOURCES})
 
-# GLFW + OpenGL
-find_package(OpenGL REQUIRED)
+target_include_directories(gui PRIVATE
+    ${IMGUI_DIR}
+    ${GLFW_INC}
+)
 
-# GLFW: Linuxon/macOS-en gyakran glfw3 config csomag van, Windows-on vcpkg / msys2 / stb.
-find_package(glfw3 CONFIG QUIET)
-if(glfw3_FOUND)
-    target_link_libraries(gui PRIVATE glfw OpenGL::GL)
-else()
-    # fallback: pkg-config (Linux)
-    find_package(PkgConfig QUIET)
-    if(PkgConfig_FOUND)
-        pkg_search_module(GLFW REQUIRED glfw3)
-        target_include_directories(gui PRIVATE ${GLFW_INCLUDE_DIRS})
-        target_link_libraries(gui PRIVATE ${GLFW_LIBRARIES} OpenGL::GL)
-        target_link_directories(gui PRIVATE ${GLFW_LIBRARY_DIRS})
-    else()
-        message(FATAL_ERROR "GLFW not found. Install glfw3 dev package or use vcpkg/msys2.")
-    endif()
-endif()
+target_link_libraries(gui PRIVATE
+    ${GLFW_LIB}/libglfw3.a
+    opengl32
+    gdi32
+    user32
+    shell32
+)
 
-# Windows extra libs (ha MinGW/MSYS2 jelleg)
-if(WIN32)
-    target_link_libraries(gui PRIVATE gdi32 imm32 comdlg32 shell32)
-endif()
+# ---------------------------------------------------------------
+# launcher  (src/launcher.c)
+# ---------------------------------------------------------------
+add_executable(launcher src/launcher.c)
+target_link_libraries(launcher PRIVATE shell32)
 
-# Linux extra libs (sokszor kell)
-if(UNIX AND NOT APPLE)
-    target_link_libraries(gui PRIVATE dl pthread)
-endif()
+# ---------------------------------------------------------------
+# All binaries -> build-mingw/
+# ---------------------------------------------------------------
+set(OUT_DIR ${CMAKE_SOURCE_DIR}/build-mingw)
+
+set_target_properties(main_logic gui launcher PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY         ${OUT_DIR}
+    RUNTIME_OUTPUT_DIRECTORY_RELEASE ${OUT_DIR}
+    RUNTIME_OUTPUT_DIRECTORY_DEBUG   ${OUT_DIR}
+)

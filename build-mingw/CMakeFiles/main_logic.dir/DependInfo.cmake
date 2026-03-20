@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/rikov/Documents/KernelOverloards/main.c" "CMakeFiles/main_logic.dir/main.c.obj" "gcc" "CMakeFiles/main_logic.dir/main.c.obj.d"
+  "C:/Users/rikov/Documents/KernelOverloards/src/rover_sim.c" "CMakeFiles/main_logic.dir/src/rover_sim.c.obj" "gcc" "CMakeFiles/main_logic.dir/src/rover_sim.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
