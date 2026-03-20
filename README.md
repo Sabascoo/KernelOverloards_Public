@@ -5,6 +5,11 @@
 **Felkészítő Tanár:** Baksza Dávid 
 **E-mail:** rikovszkyregina@gmail.com
 
+##FONTOS
+
+A csapat többi tagja úgy döntött, hogy nem folytatja a részvételt a versenyen, ezért a projektet a továbbiakban egyedül készítem.
+Kérem a tisztelt zsűri megértését a változásokkal kapcsolatban.
+
 ## Követelmények
 
 ### Windows
@@ -20,7 +25,7 @@ sudo apt install build-essential cmake libglfw3-dev libgl-dev
 ```
 
 ## Fordítás és futtatás
-3
+
 ### Windows
 
 ```powershell
@@ -64,3 +69,4 @@ cmake --build build -j
 | `log fajl nem nyithato meg` | Az `output/` mappa nem létezik – hozd létre kézzel |
 | GUI nem indul el | Ellenőrizd, hogy a `build-mingw/gui.exe` létezik-e |
 | Régi CMakeCache hiba | Töröld a `build-mingw/CMakeCache.txt`-t és a `CMakeFiles/` mappát, majd fordíts újra |
+
