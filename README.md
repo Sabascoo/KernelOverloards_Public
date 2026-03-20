@@ -1,14 +1,21 @@
 # PROJECT: Mars Rover Mission Control
 
 **Készítette:** Rikovszky Regina (Kernel Overloards)
+
 **Iskola Neve:** Váci SZC Boronkay György Műszaki Technikum és Gimnázium
+
 **Felkészítő Tanár:** Baksza Dávid 
+
 **E-mail:** rikovszkyregina@gmail.com
 
 ## FONTOS
 
 A csapat többi tagja úgy döntött, hogy nem folytatja a részvételt a versenyen, ezért a projektet végül egyedül készítettem el.
 Kérem a tisztelt zsűri megértését a változásokkal kapcsolatban.
+
+## Programfejlesztői környezet
+
+- Visual Studio Code 1.112
 
 ## Követelmények
 
@@ -64,9 +71,9 @@ cmake --build build -j
 
 | Hiba | Megoldás |
 |---|---|
-| `CMakeLists.txt not found` | Nem a projekt gyökérből futtatod a launcher-t |
+| `CMakeLists.txt not found` | Nem a projekt gyökérből futtatod a launchert |
 | `mars_map_50x50.csv nem olvasható` | A `data/` mappa hiányzik vagy nincs benne a CSV |
-| `log fajl nem nyithato meg` | Az `output/` mappa nem létezik – hozd létre kézzel |
+| `log fajl nem nyithato meg` | Az `output/` mappa nem létezik –> hozd létre kézzel |
 | GUI nem indul el | Ellenőrizd, hogy a `build-mingw/gui.exe` létezik-e |
 | Régi CMakeCache hiba | Töröld a `build-mingw/CMakeCache.txt`-t és a `CMakeFiles/` mappát, majd fordíts újra |
 
