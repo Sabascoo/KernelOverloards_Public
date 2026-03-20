@@ -13,13 +13,13 @@ A csapat többi tagja úgy döntött, hogy nem folytatja a részvételt a versen
 Kérem a tisztelt zsűri megértését a változásokkal kapcsolatban.
 
 - Kérem, hogy a programot a GitHubról, ZIP fájlba csomagolva töltsék le. A csomag tartalmazza a videófelvételt, a README fájlt, valamint az algoritmust bemutató PDF dokumentumot.
-- Letöltés és kicsomagolás után nevezzék át a mappát — a neve legyen: **KernelOverloards**
+- Letöltés és kicsomagolás után nevezzék át a mappát a neve legyen: **KernelOverloards**
 
 ---
 
 ## Programfejlesztői környezet
 
-- Visual Studio Code 1.112
+- Visual Studio Code 1.112.0
 
 ---
 
