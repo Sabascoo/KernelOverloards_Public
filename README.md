@@ -79,37 +79,3 @@ cmake --build build -j
 | GUI nem indul el | Ellenőrizzék, hogy a `build-mingw/gui.exe` létezik-e |
 | Régi CMakeCache hiba | Töröljék a `build-mingw/CMakeCache.txt`-t és a `CMakeFiles/` mappát, majd fordítsák újra |
 
-## Ellenőrzés
-
-- Helyesen letöltött mappa szerkezete így néz ki:
-
-Mode                 LastWriteTime         Length Name
-
-----                 -------------         ------ ----
-
-d-----        18/03/2026     14:34                .vscode
-
-d-----        18/03/2026     18:25                build-mingw
-
-d-----        18/03/2026     14:46                data
-
-d-----        18/03/2026     14:36                glfw
-
-d-----        18/03/2026     14:34                glfw-3.4.bin.WIN64
-
-d-----        18/03/2026     17:30                imgui
-
-d-----        20/03/2026     12:19                KernelOverloards_Public
-
-d-----        18/03/2026     14:37                New folder
-
-d-----        18/03/2026     18:09                output
-
-d-----        18/03/2026     18:06                src
-
--a----        18/03/2026     17:31           1963 CMakeLists.txt
-
--a----        18/03/2026     18:31            153 imgui.ini
-
--a----        20/03/2026     12:00           1824 README.md
-
