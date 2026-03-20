@@ -101,9 +101,9 @@ cmake --build build -j
 |---|---|
 | `CMakeLists.txt not found` | Nem a projekt gyökérkönyvtárából futtatják a CMake-et |
 | `mars_map_50x50.csv nem olvasható` | A `data/` mappa hiányzik, vagy nincs benne a CSV fájl |
-| `log fajl nem nyithato meg` | Az `output/` mappa nem létezik — hozzák létre kézzel |
+| `log fajl nem nyithato meg` | Az `output/` mappa nem létezik -> hozzák létre kézzel |
 | GUI nem indul el | Ellenőrizzék, hogy a `build-mingw/gui.exe` létezik-e |
-| `Permission denied` a `launcher.exe`-nél | A launchert a `build-mingw/` mappából futtatják — mindig a projekt gyökérkönyvtárából kell indítani: `.\launcher.exe` |
+| `Permission denied` a `launcher.exe`-nél | A launchert a `build-mingw/` mappából futtatják mindig a projekt gyökérkönyvtárából kell indítani: `.\launcher.exe` |
 | Régi CMakeCache hiba (mappa átnevezés után) | Lásd az alábbi parancsokat |
 
 Ha a CMakeCache hibát kapnak (pl. mappa átnevezés vagy áthelyezés után):
@@ -126,12 +126,12 @@ cmake --build build-mingw --config Release
 
 | Hiba | Megoldás |
 |---|---|
-| `Cannot find source file: imgui/imgui.cpp` | Az `imgui/` mappából hiányoznak a `.cpp` forrásfájlok — töltsék le a teljes repót újra |
+| `Cannot find source file: imgui/imgui.cpp` | Az `imgui/` mappából hiányoznak a `.cpp` forrásfájlok töltsék le a teljes repót újra |
 | `Could not find glfw3` | A GLFW nincs telepítve: `sudo apt install libglfw3-dev` |
 | `Could not find OpenGL` | Hiányzó OpenGL csomag: `sudo apt install libgl-dev` |
 | `Permission denied: ./launcher` | Adjanak futtatási jogot: `chmod +x ./launcher` |
 | `mars_map_50x50.csv nem olvasható` | A `data/` mappa hiányzik, vagy nincs benne a CSV fájl |
-| `log fajl nem nyithato meg` | Az `output/` mappa nem létezik — hozzák létre: `mkdir -p output` |
+| `log fajl nem nyithato meg` | Az `output/` mappa nem létezik -> hozzák létre: `mkdir -p output` |
 | GUI nem indul el | Ellenőrizzék, hogy a `build/gui` létezik-e, és van-e futtatási joga: `chmod +x build/gui` |
 | Régi CMakeCache hiba (mappa átnevezés után) | Lásd az alábbi parancsokat |
 
